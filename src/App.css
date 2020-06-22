@@ -24,8 +24,33 @@
   width: 50vw;
 }
 
-@media screen and (max-width: 500px) {
-  .container {
+#options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.option {
+}
+
+@media screen and (min-width: 1000px) {
+  label {
+    font-size: 1.5rem;
+  }
+  #options {
+    width: 90%;
+  }
+  .option {
+    margin: 20px;
+    width: 45%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #options {
     flex-direction: column;
+  }
+  .option {
+    margin: 20px;
   }
 }
