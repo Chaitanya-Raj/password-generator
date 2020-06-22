@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <input type="text" name="password" id="password" />
+      <button id="copy">
+        <span role="img" aria-label="clipboard">
+          &#128203;
+        </span>
+      </button>
+      <button id="generate">Generate</button>
+      <div className="options">
+        <input
+          type="checkbox"
+          id="uppercase"
+          name="uppercase"
+          value="uppercase"
+        />
+        <label for="uppercase"> Include uppercase letters</label>
+        <input
+          type="checkbox"
+          id="lowercase"
+          name="lowercase"
+          value="lowercase"
+        />
+        <label for="lowercase"> Include lowercase letters</label>
+        <input type="checkbox" id="numbers" name="numbers" value="numbers" />
+        <label for="numbers"> Include numbers</label>
+        <input type="checkbox" id="symbols" name="symbols" value="symbols" />
+        <label for="symbols"> Include symbols</label>
+      </div>
     </div>
   );
 }
