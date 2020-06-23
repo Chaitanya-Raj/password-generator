@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: white;
+  background: #333;
   box-shadow: 0 0 10px black, 0 0 10px black;
   border-radius: 30px;
 }
@@ -33,6 +33,7 @@
 #options {
   display: flex;
   flex-wrap: wrap;
+  color: white;
 }
 
 @media screen and (min-width: 1000px) {
@@ -50,8 +51,6 @@
 }
 
 @media screen and (max-width: 500px) {
-  .container {
-  }
   #result {
     justify-content: center;
   }

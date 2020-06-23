@@ -13,7 +13,7 @@ function App() {
   const [isLowercase, setIsLowercase] = useState(false);
   const [isNumber, setIsNumber] = useState(false);
   const [isSymbol, setIsSymbol] = useState(false);
-  const [len, setLen] = useState(8);
+  const [len, setLen] = useState(12);
 
   useEffect(() => {}, []);
 
