@@ -91,7 +91,7 @@ function App() {
               if (e.target.value.match("^[0-9]*$")) setLen(e.target.value);
             }}
           />
-          <label htmlFor="isUppercase"> Length </label>
+          <label htmlFor="length"> Length </label>
         </div>
         <div id="checkboxes">
           <div className="option">
