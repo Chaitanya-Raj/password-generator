@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RandExp from "randexp";
 import zxcvbn from "zxcvbn";
+import "./reset.css";
 import "./App.css";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       else if (s.score === 3) pw.style.border = "5px solid lightgreen";
       else if (s.score === 4) pw.style.border = "5px solid green";
     } else {
-      pw.style.border = "1px solid black";
+      pw.style.border = "none";
     }
   }, [password]);
 
@@ -52,6 +53,8 @@ function App() {
               console.log("Copying text command was " + msg);
             } catch (err) {
               console.log("Oops, unable to copy");
+            } finally {
+              pass.blur();
             }
           }}
         >

@@ -1,3 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400&display=swap");
+
+* {
+  font-family: "Overpass Mono", monospace;
+  font-weight: 400;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Overpass Mono", monospace;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(rgb(5, 58, 82), rgb(15, 32, 68));
+  overflow: hidden;
+}
+
 .container {
   width: 80vw;
   min-height: 70vh;
@@ -5,7 +28,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: linear-gradient(90deg, #333, #222);
+  background: linear-gradient(#333, #222);
   box-shadow: 0 0 10px black, 0 0 10px black;
   border-radius: 30px;
   transition: all 0.2s;
@@ -32,6 +55,10 @@
   width: auto;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+button::-moz-focus-inner {
+  border: none;
 }
 
 #password,
@@ -66,19 +93,37 @@
 
 .option {
   margin: 15px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
 }
 
 @media screen and (min-width: 1000px) {
+  body {
+    background: linear-gradient(90deg, rgb(5, 58, 82), rgb(15, 32, 68));
+  }
+
   .container {
     width: 70vw;
     font-size: 1.2rem;
+    background: linear-gradient(90deg, #333, #222);
   }
 
   #result {
     margin-right: 40px;
   }
 
+  #length {
+    font-size: 1rem;
+  }
+
   #password {
     width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .option {
+    display: block;
   }
 }
