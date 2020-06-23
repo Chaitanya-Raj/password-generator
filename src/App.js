@@ -29,6 +29,7 @@ function App() {
           name="password"
           id="password"
           value={password}
+          placeholder="generated password"
           readOnly
         />
         <button
@@ -59,8 +60,10 @@ function App() {
             if (isUppercase) re += "A-Z";
             if (isNumber) re += "0-9";
             if (isSymbol) re += "$!@#%?&.";
-            let randexp = new RandExp(`[${re}]{${len}}`);
-            setPassword(randexp.gen());
+            if (len !== "" && len >= 0) {
+              let randexp = new RandExp(`[${re}]{${len}}`);
+              setPassword(randexp.gen());
+            }
           }}
         >
           Generate
@@ -69,11 +72,13 @@ function App() {
       <div id="options">
         <div className="option">
           <input
-            type="number"
+            type="text"
             id="length"
             name="length"
             value={len}
-            onChange={(e) => setLen(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.match(/[0-9]*/)) setLen(e.target.value);
+            }}
           />
           <label htmlFor="isUppercase"> Length </label>
         </div>
