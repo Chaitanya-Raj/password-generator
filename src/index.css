@@ -2,12 +2,14 @@
 
 * {
   font-family: "Overpass Mono", monospace;
+  font-weight: 400;
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: "Overpass Mono", monospace;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -16,9 +18,4 @@ body {
   min-height: 100vh;
   background: linear-gradient(90deg, rgb(5, 58, 82), rgb(51, 54, 56));
   /* linear-gradient(90deg, #a1c4fd, #c2e9fb); */
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
