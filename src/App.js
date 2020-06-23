@@ -1,43 +1,79 @@
 import React, { useState, useEffect } from "react";
+import RandExp from "randexp";
 import "./App.css";
+
+// const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// const lowercase = "abcdefghijklmnopqrstuvwxyz";
+// const numbers = "0123456789";
+// const symbols = "!@#$%&.";
 
 function App() {
   const [password, setPassword] = useState("");
-  const [uppercase, setUppercase] = useState(false);
-  const [lowercase, setLowercase] = useState(false);
-  const [numbers, setNumbers] = useState(false);
-  const [symbols, setSymbols] = useState(false);
+  const [isUppercase, setIsUppercase] = useState(false);
+  const [isLowercase, setIsLowercase] = useState(false);
+  const [isNumber, setIsNumber] = useState(false);
+  const [isSymbol, setIsSymbol] = useState(false);
+  const [len, setLen] = useState(8);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     console.log("pass", password);
-    console.log("up", uppercase);
-    console.log("low", lowercase);
-    console.log("num", numbers);
-    console.log("sym", symbols);
-  }, [password, uppercase, lowercase, numbers, symbols]);
+    console.log("up", isUppercase);
+    console.log("low", isLowercase);
+    console.log("num", isNumber);
+    console.log("sym", isSymbol);
+    console.log("len", len);
+  }, [password, isUppercase, isLowercase, isNumber, isSymbol, len]);
 
   return (
     <div className="container">
-      <input type="text" name="password" id="password" />
-      <button id="copy">
-        <span role="img" aria-label="clipboard">
-          &#128203;
-        </span>
-      </button>
-      <button
-        id="generate"
-        onClick={() => setPassword(document.getElementById("password").value)}
-      >
-        Generate
-      </button>
+      <div id="result">
+        <input
+          type="text"
+          name="password"
+          id="password"
+          value={password}
+          readOnly
+        />
+        <button id="copy">
+          <span role="img" aria-label="clipboard">
+            &#128203;
+          </span>
+        </button>
+        <button
+          id="generate"
+          onClick={() => {
+            let re = "";
+            if (isLowercase) re += "a-z";
+            if (isUppercase) re += "A-Z";
+            if (isNumber) re += "0-9";
+            if (isSymbol) re += "!@#%&";
+            let randexp = new RandExp(`[${re}]{${len}}`);
+            setPassword(randexp.gen());
+          }}
+        >
+          Generate
+        </button>
+      </div>
       <div id="options">
+        <div className="option">
+          <input
+            type="number"
+            id="length"
+            name="length"
+            value={len}
+            onChange={(e) => setLen(e.target.value)}
+          />
+          <label htmlFor="isUppercase"> Length </label>
+        </div>
         <div className="option">
           <input
             type="checkbox"
             id="uppercase"
             name="uppercase"
-            value={uppercase}
-            onChange={() => setUppercase(!uppercase)}
+            checked={isUppercase}
+            onChange={() => setIsUppercase(!isUppercase)}
           />
           <label htmlFor="uppercase"> Include uppercase letters</label>
         </div>
@@ -46,30 +82,30 @@ function App() {
             type="checkbox"
             id="lowercase"
             name="lowercase"
-            value={lowercase}
-            onChange={() => setLowercase(!lowercase)}
+            checked={isLowercase}
+            onChange={() => setIsLowercase(!isLowercase)}
           />
           <label htmlFor="lowercase"> Include lowercase letters</label>
         </div>
         <div className="option">
           <input
             type="checkbox"
-            id="numbers"
-            name="numbers"
-            value={numbers}
-            onChange={() => setNumbers(!numbers)}
+            id="number"
+            name="number"
+            checked={isNumber}
+            onChange={() => setIsNumber(!isNumber)}
           />
-          <label htmlFor="numbers"> Include numbers</label>
+          <label htmlFor="number"> Include numbers</label>
         </div>
         <div className="option">
           <input
             type="checkbox"
-            id="symbols"
-            name="symbols"
-            value={symbols}
-            onChange={() => setSymbols(!symbols)}
+            id="symbol"
+            name="symbol"
+            checked={isSymbol}
+            onChange={() => setIsSymbol(!isSymbol)}
           />
-          <label htmlFor="symbols"> Include symbols</label>
+          <label htmlFor="symbol"> Include symbols</label>
         </div>
       </div>
     </div>
