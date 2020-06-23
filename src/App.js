@@ -83,6 +83,7 @@ function App() {
             id="length"
             name="length"
             value={len}
+            maxLength="2"
             onChange={(e) => {
               if (e.target.value.match(/[0-9]*/)) setLen(e.target.value);
             }}
