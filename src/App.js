@@ -2,17 +2,12 @@ import React, { useState, useEffect } from "react";
 import RandExp from "randexp";
 import "./App.css";
 
-// const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// const lowercase = "abcdefghijklmnopqrstuvwxyz";
-// const numbers = "0123456789";
-// const symbols = "!@#$%&.";
-
 function App() {
   const [password, setPassword] = useState("");
-  const [isUppercase, setIsUppercase] = useState(false);
-  const [isLowercase, setIsLowercase] = useState(false);
-  const [isNumber, setIsNumber] = useState(false);
-  const [isSymbol, setIsSymbol] = useState(false);
+  const [isUppercase, setIsUppercase] = useState(true);
+  const [isLowercase, setIsLowercase] = useState(true);
+  const [isNumber, setIsNumber] = useState(true);
+  const [isSymbol, setIsSymbol] = useState(true);
   const [len, setLen] = useState(12);
 
   useEffect(() => {}, []);
@@ -36,7 +31,22 @@ function App() {
           value={password}
           readOnly
         />
-        <button id="copy">
+        <button
+          id="copy"
+          onClick={(e) => {
+            let pass = document.getElementById("password");
+            pass.focus();
+            pass.select();
+
+            try {
+              let successful = document.execCommand("copy");
+              let msg = successful ? "successful" : "unsuccessful";
+              console.log("Copying text command was " + msg);
+            } catch (err) {
+              console.log("Oops, unable to copy");
+            }
+          }}
+        >
           <span role="img" aria-label="clipboard">
             &#128203;
           </span>
@@ -48,7 +58,7 @@ function App() {
             if (isLowercase) re += "a-z";
             if (isUppercase) re += "A-Z";
             if (isNumber) re += "0-9";
-            if (isSymbol) re += "!@#%&";
+            if (isSymbol) re += "$!@#%?&.";
             let randexp = new RandExp(`[${re}]{${len}}`);
             setPassword(randexp.gen());
           }}
