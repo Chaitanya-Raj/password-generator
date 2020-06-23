@@ -93,45 +93,47 @@ function App() {
           />
           <label htmlFor="isUppercase"> Length </label>
         </div>
-        <div className="option">
-          <input
-            type="checkbox"
-            id="uppercase"
-            name="uppercase"
-            checked={isUppercase}
-            onChange={() => setIsUppercase(!isUppercase)}
-          />
-          <label htmlFor="uppercase"> Include uppercase letters</label>
-        </div>
-        <div className="option">
-          <input
-            type="checkbox"
-            id="lowercase"
-            name="lowercase"
-            checked={isLowercase}
-            onChange={() => setIsLowercase(!isLowercase)}
-          />
-          <label htmlFor="lowercase"> Include lowercase letters</label>
-        </div>
-        <div className="option">
-          <input
-            type="checkbox"
-            id="number"
-            name="number"
-            checked={isNumber}
-            onChange={() => setIsNumber(!isNumber)}
-          />
-          <label htmlFor="number"> Include numbers</label>
-        </div>
-        <div className="option">
-          <input
-            type="checkbox"
-            id="symbol"
-            name="symbol"
-            checked={isSymbol}
-            onChange={() => setIsSymbol(!isSymbol)}
-          />
-          <label htmlFor="symbol"> Include symbols</label>
+        <div id="checkboxes">
+          <div className="option">
+            <input
+              type="checkbox"
+              id="uppercase"
+              name="uppercase"
+              checked={isUppercase}
+              onChange={() => setIsUppercase(!isUppercase)}
+            />
+            <label htmlFor="uppercase"> Include uppercase letters</label>
+          </div>
+          <div className="option">
+            <input
+              type="checkbox"
+              id="lowercase"
+              name="lowercase"
+              checked={isLowercase}
+              onChange={() => setIsLowercase(!isLowercase)}
+            />
+            <label htmlFor="lowercase"> Include lowercase letters</label>
+          </div>
+          <div className="option">
+            <input
+              type="checkbox"
+              id="number"
+              name="number"
+              checked={isNumber}
+              onChange={() => setIsNumber(!isNumber)}
+            />
+            <label htmlFor="number"> Include numbers</label>
+          </div>
+          <div className="option">
+            <input
+              type="checkbox"
+              id="symbol"
+              name="symbol"
+              checked={isSymbol}
+              onChange={() => setIsSymbol(!isSymbol)}
+            />
+            <label htmlFor="symbol"> Include symbols</label>
+          </div>
         </div>
       </div>
     </div>
