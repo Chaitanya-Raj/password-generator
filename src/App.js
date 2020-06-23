@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RandExp from "randexp";
+import zxcvbn from "zxcvbn";
 import "./App.css";
 
 function App() {
@@ -10,16 +11,20 @@ function App() {
   const [isSymbol, setIsSymbol] = useState(true);
   const [len, setLen] = useState(12);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
-    console.log("pass", password);
-    console.log("up", isUppercase);
-    console.log("low", isLowercase);
-    console.log("num", isNumber);
-    console.log("sym", isSymbol);
-    console.log("len", len);
-  }, [password, isUppercase, isLowercase, isNumber, isSymbol, len]);
+    let s = zxcvbn(password);
+    console.log(s);
+    let pw = document.getElementById("password");
+    if (password !== "") {
+      if (s.score === 0) pw.style.border = "5px solid red";
+      else if (s.score === 1) pw.style.border = "5px solid orange";
+      else if (s.score === 2) pw.style.border = "5px solid yellow";
+      else if (s.score === 3) pw.style.border = "5px solid lightgreen";
+      else if (s.score === 4) pw.style.border = "5px solid green";
+    } else {
+      pw.style.border = "1px solid black";
+    }
+  }, [password]);
 
   return (
     <div className="container">
@@ -30,7 +35,9 @@ function App() {
           id="password"
           value={password}
           placeholder="generated password"
-          readOnly
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
         />
         <button
           id="copy"
