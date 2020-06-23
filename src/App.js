@@ -85,7 +85,7 @@ function App() {
             value={len}
             maxLength="2"
             onChange={(e) => {
-              if (e.target.value.match(/[0-9]*/)) setLen(e.target.value);
+              if (e.target.value.match("^[0-9]*$")) setLen(e.target.value);
             }}
           />
           <label htmlFor="isUppercase"> Length </label>
