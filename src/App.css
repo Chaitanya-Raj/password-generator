@@ -8,6 +8,23 @@
   background: linear-gradient(90deg, #333, #222);
   box-shadow: 0 0 10px black, 0 0 10px black;
   border-radius: 30px;
+  transition: all 0.2s;
+  animation: come-in 2s;
+}
+
+@keyframes come-in {
+  0% {
+    transform: translateY(1000px);
+  }
+  30% {
+    transform: translateY(400px);
+  }
+  70% {
+    transform: translateY(500px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 #result {

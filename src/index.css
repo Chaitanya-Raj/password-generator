@@ -18,4 +18,5 @@ body {
   min-height: 100vh;
   background: linear-gradient(90deg, rgb(5, 58, 82), rgb(51, 54, 56));
   /* linear-gradient(90deg, #a1c4fd, #c2e9fb); */
+  overflow: hidden;
 }
