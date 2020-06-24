@@ -29,8 +29,15 @@ function App() {
     }
   }, [password]);
 
-  const notify = (msg) =>
+  useEffect(() => {
+    notify("feel free to test the strength of your own passwords ;)", {
+      delay: 1500,
+    });
+  }, []);
+
+  const notify = (msg, options = {}) =>
     toast(msg, {
+      ...options,
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: true,
@@ -62,7 +69,7 @@ function App() {
 
             try {
               document.execCommand("copy");
-              notify("Copied to Clipboard :)");
+              notify("Copied password to the clipboard");
             } catch (err) {
               notify("Oops, unable to copy");
             } finally {
