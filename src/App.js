@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import RandExp from "randexp";
 import zxcvbn from "zxcvbn";
 import "./reset.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 function App() {
@@ -27,6 +29,17 @@ function App() {
     }
   }, [password]);
 
+  const notify = (msg) =>
+    toast(msg, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
   return (
     <div className="container">
       <div id="result">
@@ -48,11 +61,10 @@ function App() {
             pass.select();
 
             try {
-              let successful = document.execCommand("copy");
-              let msg = successful ? "successful" : "unsuccessful";
-              console.log("Copying text command was " + msg);
+              document.execCommand("copy");
+              notify(" Copied to Clipboard :)");
             } catch (err) {
-              console.log("Oops, unable to copy");
+              notify(" Oops, unable to copy");
             } finally {
               pass.blur();
             }
@@ -136,6 +148,7 @@ function App() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

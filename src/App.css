@@ -115,6 +115,11 @@ input[type="checkbox"] {
   filter: hue-rotate(-10deg) brightness(0.9);
 }
 
+.Toastify__toast--default {
+  color: white;
+  background: linear-gradient(#333, #222);
+}
+
 @media screen and (min-width: 1000px) {
   body {
     background: linear-gradient(90deg, rgb(5, 58, 82), rgb(15, 32, 68));
@@ -155,5 +160,9 @@ input[type="checkbox"] {
 
   input[type="checkbox"] {
     filter: invert(100%) grayscale(100%);
+  }
+
+  .Toastify__toast--default {
+    background: linear-gradient(90deg, #242424, #232323);
   }
 }
