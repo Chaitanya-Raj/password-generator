@@ -62,9 +62,9 @@ function App() {
 
             try {
               document.execCommand("copy");
-              notify(" Copied to Clipboard :)");
+              notify("Copied to Clipboard :)");
             } catch (err) {
-              notify(" Oops, unable to copy");
+              notify("Oops, unable to copy");
             } finally {
               pass.blur();
             }

@@ -118,6 +118,8 @@ input[type="checkbox"] {
 .Toastify__toast--default {
   color: white;
   background: linear-gradient(#333, #222);
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 1000px) {
