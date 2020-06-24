@@ -11,8 +11,8 @@ function App() {
   const [isUppercase, setIsUppercase] = useState(true);
   const [isLowercase, setIsLowercase] = useState(true);
   const [isNumber, setIsNumber] = useState(true);
-  const [isSymbol, setIsSymbol] = useState(true);
-  const [len, setLen] = useState(12);
+  const [isSymbol, setIsSymbol] = useState(false);
+  const [len, setLen] = useState(14);
 
   useEffect(() => {
     let s = zxcvbn(password);
