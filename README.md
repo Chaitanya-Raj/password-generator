@@ -1,3 +1,18 @@
+# Password Generator
+
+## Objective
+
+To create an app which generates a secure password according to the user's preferences.
+It can also be used to test the strength of the passwords that the users can input.
+
+## Learning Outcomes
+
+- Gained experience working with RegEx.
+
+- Used React-Toastify to display toasts.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
