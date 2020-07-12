@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/password-generator/precache-manifest.e63f11b45ab6090a4bab71ce16e14f61.js"
+  "/password-generator/precache-manifest.8077d0452552334b80181d5725e54333.js"
 );
 
 self.addEventListener('message', (event) => {
