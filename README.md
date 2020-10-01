@@ -9,7 +9,8 @@ It can also be used to test the strength of the passwords that the users can inp
 
 - Gained experience working with RegEx.
 
-- Used React-Toastify to display toasts.
+- Used [zxcvbn](https://github.com/dropbox/zxcvbn) to check password strength
+
+- Used [react-toastify](https://github.com/fkhadra/react-toastify) to display toasts.
 
 ---
-
